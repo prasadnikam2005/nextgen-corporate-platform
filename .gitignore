@@ -1,0 +1,150 @@
+
+# ==============================
+# Environment Variables & Secrets
+# ==============================
+.env
+.env.*
+!.env.example
+!.env.sample
+!.env.template
+
+# API keys and credentials
+*.pem
+*.key
+secrets/
+credentials.json
+service-account*.json
+Nexora_documentation.txt
+
+
+# ==============================
+# Next.js / Frontend
+# ==============================
+node_modules/
+.next/
+out/
+build/
+dist/
+.next-build/
+
+# Package manager logs
+npm-debug.log*
+yarn-debug.log*
+pnpm-debug.log*
+lerna-debug.log*
+
+# Testing and coverage
+coverage/
+.nyc_output/
+playwright-report/
+test-results/
+
+# Next.js deployment
+.vercel/
+
+# ==============================
+# Python / FastAPI Backend
+# ==============================
+__pycache__/
+*.py[cod]
+*$py.class
+*.so
+
+# Virtual environments
+.venv/
+venv/
+env/
+ENV/
+
+# Python packaging
+build/
+dist/
+*.egg-info/
+.eggs/
+wheels/
+pip-wheel-metadata/
+
+# Testing and linting
+.pytest_cache/
+.coverage
+.coverage.*
+htmlcov/
+.mypy_cache/
+.ruff_cache/
+.tox/
+.nox/
+
+# FastAPI / Uvicorn logs
+*.log
+logs/
+
+# ==============================
+# LLM / AI Artifacts
+# ==============================
+
+# Downloaded model weights
+/models/
+/model/
+!backend/app/models/
+*.gguf
+*.safetensors
+*.bin
+*.pt
+*.pth
+*.onnx
+*.tflite
+
+# Hugging Face cache
+.cache/
+huggingface_cache/
+transformers_cache/
+
+# Embeddings and vector indexes
+embeddings/
+vector_store/
+vector_db/
+chroma_db/
+qdrant_storage/
+faiss_index/
+
+# Fine-tuning and experiment outputs
+checkpoints/
+runs/
+wandb/
+mlruns/
+lightning_logs/
+
+# ==============================
+# Databases & Local Data
+# ==============================
+*.db
+*.sqlite
+*.sqlite3
+
+# Uploaded files and generated data
+uploads/
+generated/
+data/raw/
+data/processed/
+
+# ==============================
+# IDEs & Operating Systems
+# ==============================
+.vscode/
+.idea/
+*.swp
+*.swo
+.DS_Store
+Thumbs.db
+Desktop.ini
+
+# ==============================
+# Temporary Files
+# ==============================
+tmp/
+temp/
+*.tmp
+*.bak
+
+# TypeScript build cache
+*.tsbuildinfo
