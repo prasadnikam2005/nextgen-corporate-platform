@@ -1,344 +1,436 @@
+::: {align="center"}
 # NextGen Corporate Platform
 
 ### AI-Powered Corporate Website & Automated Enquiry Management System
 
-A full-stack corporate platform that helps businesses collect, analyse,
-organise, and manage customer enquiries through a structured workflow.
-The application combines a public-facing corporate website with an
-administrative enquiry management interface and AI-assisted enquiry
-analysis.
+**Capture • Analyse • Manage • Convert**
 
-> **Project focus:** Save-first enquiry processing, LLM-assisted triage,
-> enquiry lifecycle management, and workflow automation.
+A full-stack corporate platform that combines structured customer
+enquiry collection, AI-assisted triage, database-backed enquiry
+management, and workflow automation.
+
+```{=html}
+<p>
+```
+`<a href="https://github.com/prasadnikam2005/nextgen-corporate-platform">`{=html}
+`<img src="https://img.shields.io/badge/GitHub-Repository-181717?style=for-the-badge&logo=github" alt="GitHub Repository">`{=html}
+`</a>`{=html}
+`<img src="https://img.shields.io/badge/Role-Backend%20%26%20AI%2FML%20Developer-2563EB?style=for-the-badge" alt="My Role">`{=html}
+`<img src="https://img.shields.io/badge/Project-Final%20Year%20Major%20Project-7C3AED?style=for-the-badge" alt="Academic Project">`{=html}
+```{=html}
+</p>
+```
+```{=html}
+<p>
+```
+`<a href="https://github.com/prasadnikam2005/nextgen-corporate-platform/stargazers">`{=html}
+`<img src="https://img.shields.io/github/stars/prasadnikam2005/nextgen-corporate-platform?style=flat-square&logo=github&label=Stars" alt="GitHub Stars">`{=html}
+`</a>`{=html}
+`<a href="https://github.com/prasadnikam2005/nextgen-corporate-platform/forks">`{=html}
+`<img src="https://img.shields.io/github/forks/prasadnikam2005/nextgen-corporate-platform?style=flat-square&logo=github&label=Forks" alt="GitHub Forks">`{=html}
+`</a>`{=html}
+`<a href="https://github.com/prasadnikam2005/nextgen-corporate-platform/issues">`{=html}
+`<img src="https://img.shields.io/github/issues/prasadnikam2005/nextgen-corporate-platform?style=flat-square&logo=github&label=Issues" alt="GitHub Issues">`{=html}
+`</a>`{=html}
+`<a href="https://github.com/prasadnikam2005/nextgen-corporate-platform/commits">`{=html}
+`<img src="https://img.shields.io/github/last-commit/prasadnikam2005/nextgen-corporate-platform?style=flat-square&logo=github&label=Last%20Commit" alt="Last Commit">`{=html}
+`</a>`{=html}
+```{=html}
+</p>
+```
+[Explore
+Repository](https://github.com/prasadnikam2005/nextgen-corporate-platform)
+· [Report an
+Issue](https://github.com/prasadnikam2005/nextgen-corporate-platform/issues)
+:::
 
 ------------------------------------------------------------------------
 
-## Table of Contents
+## 📌 Project at a Glance
 
--   [Project Overview](#project-overview)
--   [Problem Statement](#problem-statement)
--   [Key Features](#key-features)
--   [Enquiry Lifecycle](#enquiry-lifecycle)
--   [System Architecture](#system-architecture)
--   [Technology Stack](#technology-stack)
--   [My Role and Contributions](#my-role-and-contributions)
--   [Backend Processing Workflow](#backend-processing-workflow)
--   [API Overview](#api-overview)
--   [Project Structure](#project-structure)
--   [Getting Started](#getting-started)
--   [Environment Configuration](#environment-configuration)
--   [Run Locally](#run-locally)
--   [Testing](#testing)
--   [Security Considerations](#security-considerations)
--   [Current Implementation Notes](#current-implementation-notes)
--   [Future Enhancements](#future-enhancements)
--   [Project Team and Academic
-    Information](#project-team-and-academic-information)
--   [About Me](#about-me)
+  ----------------------------------- --------------------------------------------------------
+  **Project**                         NextGen Corporate Platform
+
+  **Domain**                          Full-Stack Development · Backend Engineering · AI/LLM
+                                      Integration
+
+  **My Responsibility**               **Backend & AI/ML Developer**
+
+  **Institution**                     Vishwakarma Institute of Information Technology (VIIT),
+                                      Pune
+
+  **Programme**                       B.Tech --- Computer Science & Engineering (AI & ML)
+
+  **Repository Owner**                [@prasadnikam2005](https://github.com/prasadnikam2005)
+  ----------------------------------- --------------------------------------------------------
+
+## 📚 Contents
+
+```{=html}
+<details open>
+```
+```{=html}
+<summary>
+```
+`<strong>`{=html}View documentation sections`</strong>`{=html}
+```{=html}
+</summary>
+```
+-   [Overview](#-overview)
+-   [Problem and Objectives](#-problem-statement)
+-   [Key Features](#-key-features)
+-   [Enquiry Lifecycle](#-enquiry-lifecycle)
+-   [System Architecture](#-system-architecture)
+-   [Technology Stack](#-technology-stack)
+-   [My Role and Contributions](#-my-role-and-contributions)
+-   [Backend Workflow](#-backend-processing-workflow)
+-   [API Overview](#-api-overview)
+-   [Data Model](#-data-model-overview)
+-   [Project Structure](#-project-structure)
+-   [Local Setup](#-getting-started)
+-   [Environment Configuration](#-environment-configuration)
+-   [Testing](#-testing)
+-   [Security and Reliability](#-security-and-reliability)
+-   [Current Implementation Notes](#-implementation-notes)
+-   [Future Enhancements](#-future-enhancements)
+-   [About the Developer](#-about-the-developer)
+
+```{=html}
+</details>
+```
 
 ------------------------------------------------------------------------
 
-## Project Overview
+## 🚀 Overview
 
-Traditional corporate contact forms often collect customer details
-without providing a structured way to classify enquiries, assign
-responsibility, follow up, and monitor outcomes.
+Traditional corporate contact forms collect customer details, but often
+provide limited support for classifying enquiries, identifying urgency,
+assigning responsibility, and tracking follow-ups.
 
-The NextGen Corporate Platform addresses this challenge by providing:
+The **NextGen Corporate Platform** is designed to bring these activities
+into one workflow. A customer submits an enquiry through the corporate
+website. The backend validates and stores the submission, generates a
+reference ID, and requests AI-assisted analysis. Staff can review the
+enquiry, inspect its analysis, and update its status as the customer
+conversation progresses.
 
--   A corporate website with a customer enquiry form.
--   Backend APIs for validating and storing enquiry information.
--   AI-assisted analysis to identify enquiry category, intent, priority,
-    and suggested team.
--   An administrative interface for reviewing and managing enquiries.
--   Enquiry status updates and activity history.
--   Email notification workflow support.
--   An analytics dashboard interface for enquiry-related information.
+### The core workflow
 
-The platform follows a **save-first processing approach**: the enquiry
-is persisted before AI analysis is attempted. This helps retain the
-original customer submission even if the external AI service is
-unavailable or returns an error.
+1.  **Capture** customer and project requirements.
+2.  **Persist** the enquiry and generate a trackable reference.
+3.  **Analyse** the enquiry using an LLM-assisted service.
+4.  **Review** the enquiry and its analysis in the admin interface.
+5.  **Manage** the enquiry through status updates and activity tracking.
+6.  **Communicate** through configured email workflows.
+7.  **Monitor** enquiry information through dashboard views.
 
-## Problem Statement
+## 🎯 Problem Statement
 
-Businesses may receive enquiries through different channels, making it
-difficult to:
+Businesses may receive enquiries through shared inboxes, spreadsheets,
+or disconnected forms. This can make it difficult to:
 
 -   Keep customer and project information organised.
 -   Identify urgent or high-priority enquiries.
 -   Route enquiries to the appropriate team.
--   Track the current stage of each enquiry.
--   Maintain a history of status changes and follow-up activity.
+-   Track the current stage and follow-up history.
+-   Preserve submissions when an external service fails.
 -   Understand enquiry volume and service demand.
 
-This project provides a centralised application to support these
-activities.
+### Project objectives
 
-## Key Features
+-   Build a corporate website with a structured enquiry submission
+    experience.
+-   Provide backend APIs for enquiry creation and administration.
+-   Store enquiries with a unique, human-readable reference ID.
+-   Use an LLM to assist with classification, prioritisation,
+    summarisation, and team suggestions.
+-   Preserve enquiry data when AI analysis fails.
+-   Support controlled status updates and activity history.
+-   Provide an administrative interface for enquiry review.
+-   Support email notification workflows.
 
-### 1. Public Corporate Website
+## ✨ Key Features
 
--   Corporate website interface for presenting services.
--   Customer enquiry form for collecting contact and project
-    requirements.
--   Form validation before submission.
+```{=html}
+<table>
+```
+```{=html}
+<tr>
+```
+```{=html}
+<td width="50%" valign="top">
+```
+### 🌐 Public Corporate Website
 
-### 2. Enquiry Management
+-   Corporate service presentation
+-   Customer enquiry form
+-   Customer and project requirement capture
+-   Form validation
 
--   Create and store customer enquiries.
--   Generate a human-readable enquiry reference ID.
--   Maintain enquiry status and timestamps.
--   Retrieve enquiry details using an internal ID or reference ID.
--   Search and filter enquiry records in the administrative interface.
+```{=html}
+</td>
+```
+```{=html}
+<td width="50%" valign="top">
+```
+### 🗂️ Enquiry Management
 
-### 3. AI-Assisted Enquiry Analysis
+-   Reference-based enquiry records
+-   Enquiry detail retrieval
+-   Status and timestamp tracking
+-   Search and filtering in the admin interface
 
-The backend integrates an LLM-based analysis service to process enquiry
-text. The generated analysis can include:
+```{=html}
+</td>
+```
+```{=html}
+</tr>
+```
+```{=html}
+<tr>
+```
+```{=html}
+<td width="50%" valign="top">
+```
+### 🧠 AI-Assisted Triage
 
--   Enquiry category and subcategory.
--   Customer intent.
--   Priority level.
--   Short enquiry summary.
--   Suggested team.
--   Routing reason.
--   Extracted requirements.
--   Suggested response.
+-   Category and subcategory
+-   Customer intent
+-   Priority classification
+-   Enquiry summary
+-   Suggested team and response
 
-If AI analysis fails, the original enquiry remains stored and the system
-records the analysis as failed with fallback information.
+```{=html}
+</td>
+```
+```{=html}
+<td width="50%" valign="top">
+```
+### 📈 Admin and Workflow Support
 
-### 4. Status Workflow and Activity History
+-   Enquiry list and detail views
+-   Status update workflow
+-   Activity events and internal notes
+-   Dashboard visualisation interface
 
--   Update an enquiry's status.
--   Record the previous and new status.
--   Record the staff member responsible for the update.
--   Maintain an activity timeline for the enquiry.
+```{=html}
+</td>
+```
+```{=html}
+</tr>
+```
+```{=html}
+</table>
+```
+### AI analysis output
 
-### 5. Administrative Dashboard
+The Groq LLM integration can return structured information such as:
 
--   View enquiry records and their current status.
--   Search and filter enquiries.
--   View enquiry details, AI analysis, notes, and activity history where
-    available.
--   Display enquiry-related summary information and charts in the
-    dashboard interface.
+  Output                   Purpose
+  ------------------------ --------------------------------------------
+  Category / Subcategory   Identifies the service area
+  Intent                   Interprets what the customer needs
+  Priority                 LOW, MEDIUM, HIGH, or CRITICAL
+  Summary                  Gives staff a concise overview
+  Suggested team           Recommends a suitable team
+  Routing reason           Explains the team recommendation
+  Extracted requirements   Highlights important project details
+  Suggested response       Provides a draft response for staff review
 
-### 6. Email Workflow Support
+> \[!NOTE\] AI output is intended to assist staff triage and review. It
+> does not replace human decision-making.
 
-The backend schedules enquiry confirmation emails as a background task.
-The project also includes configuration for external email automation
-using n8n and Gmail. Actual delivery depends on valid credentials and
-correctly configured workflows.
+## 🔄 Enquiry Lifecycle
 
-------------------------------------------------------------------------
-
-## Enquiry Lifecycle
-
-A typical enquiry can move through the following stages:
-
-``` text
-NEW
-  |
-  v
-CONTACTED
-  |
-  v
-IN_DISCUSSION
-  |
-  v
-PROPOSAL_SENT
-  |
-  v
-CONVERTED
+``` mermaid
+flowchart TD
+    A([Customer submits enquiry]) --> B[NEW]
+    B --> C[CONTACTED]
+    C --> D[IN_DISCUSSION]
+    D --> E[PROPOSAL_SENT]
+    E --> F[CONVERTED]
+    B -. Can be closed when inactive .-> G[CLOSED]
+    C -. Can be closed when inactive .-> G
+    D -. Can be closed when inactive .-> G
+    E -. Can be closed when inactive .-> G
 ```
 
-An enquiry may also be moved to `CLOSED` when it is no longer active.
+**Example:** A customer requests an AI chatbot solution. The enquiry is
+created as `NEW`, a staff member contacts the customer, requirements are
+discussed, a proposal is sent, and the enquiry is marked `CONVERTED` if
+the customer accepts. An inactive enquiry may be marked `CLOSED`.
 
-The status is updated by an authorised staff member or administrator
-through the enquiry management workflow.
+## 🏗️ System Architecture
 
-## System Architecture
-
-``` text
-                 Customer / Admin
-                        |
-                        v
-             Next.js + React Frontend
-                        |
-                     REST API
-                        |
-                        v
-                 FastAPI Backend
-                        |
-          +-------------+-------------+
-          |             |             |
-          v             v             v
-    Enquiry Service  AI Service   Email Background
-          |          (Groq LLM)   Task / n8n
-          |
-          v
-    Repository Layer
-          |
-          v
-      PostgreSQL
+``` mermaid
+flowchart TB
+    U[Customer / Staff] --> FE[Next.js + React Frontend]
+    FE -->|REST API requests| API[Python FastAPI]
+    API --> S[Enquiry Service Layer]
+    S --> R[Repository Layer]
+    R --> DB[(PostgreSQL)]
+    S --> AI[AI Service]
+    AI --> LLM[Groq API - Llama 3.1 8B Instant]
+    S --> BG[Email Background Task]
+    BG --> N8N[n8n Webhook Workflow]
+    N8N --> G[Gmail Integration]
+    DB --> DATA[Enquiries · AI Analysis · Events · Notes]
 ```
-
-**Component responsibilities:**
 
   -----------------------------------------------------------------------
   Component                           Responsibility
   ----------------------------------- -----------------------------------
-  Frontend                            Displays the corporate website,
-                                      enquiry form, and administrative
-                                      interface
+  Next.js / React                     Corporate website and
+                                      administrative interface
 
-  FastAPI                             Exposes REST endpoints and
-                                      processes incoming requests
+  FastAPI router                      HTTP endpoints, request handling,
+                                      and access dependencies
 
-  Enquiry service                     Implements enquiry processing and
-                                      business logic
+  Enquiry service                     Enquiry processing, AI analysis
+                                      orchestration, and fallback
+                                      handling
 
-  Repository layer                    Handles database operations
+  Repository layer                    Database reads and writes
 
-  PostgreSQL                          Stores enquiry records, AI
-                                      analysis, and related activity data
+  SQLAlchemy models                   Relational mapping of
+                                      enquiry-related records
 
-  AI service                          Analyses enquiry text and returns
-                                      structured output
+  PostgreSQL                          Persistent enquiry, analysis,
+                                      event, and note data
 
-  Email workflow                      Supports customer and internal
-                                      notifications through configured
-                                      integrations
+  AI service                          LLM-based enquiry analysis
+
+  Email task / n8n                    Configured notification and
+                                      stage-email workflows
   -----------------------------------------------------------------------
 
-------------------------------------------------------------------------
+## 🧰 Technology Stack
 
-## Technology Stack
+```{=html}
+<p>
+```
+`<img src="https://img.shields.io/badge/Python-3776AB?style=flat-square&logo=python&logoColor=white" alt="Python">`{=html}
+`<img src="https://img.shields.io/badge/FastAPI-009688?style=flat-square&logo=fastapi&logoColor=white" alt="FastAPI">`{=html}
+`<img src="https://img.shields.io/badge/Next.js-000000?style=flat-square&logo=nextdotjs&logoColor=white" alt="Next.js">`{=html}
+`<img src="https://img.shields.io/badge/React-20232A?style=flat-square&logo=react&logoColor=61DAFB" alt="React">`{=html}
+`<img src="https://img.shields.io/badge/Tailwind_CSS-06B6D4?style=flat-square&logo=tailwindcss&logoColor=white" alt="Tailwind CSS">`{=html}
+`<img src="https://img.shields.io/badge/PostgreSQL-4169E1?style=flat-square&logo=postgresql&logoColor=white" alt="PostgreSQL">`{=html}
+`<img src="https://img.shields.io/badge/SQLAlchemy-D71F00?style=flat-square&logo=sqlalchemy&logoColor=white" alt="SQLAlchemy">`{=html}
+`<img src="https://img.shields.io/badge/Groq-000000?style=flat-square&logo=groq&logoColor=white" alt="Groq">`{=html}
+`<img src="https://img.shields.io/badge/n8n-EA4B71?style=flat-square&logo=n8n&logoColor=white" alt="n8n">`{=html}
+`<img src="https://img.shields.io/badge/Pytest-0A9EDC?style=flat-square&logo=pytest&logoColor=white" alt="Pytest">`{=html}
+```{=html}
+</p>
+```
+  Layer                Technology              Role
+  -------------------- ----------------------- ------------------------------------------
+  Frontend framework   Next.js                 Application framework and routing
+  UI library           React                   Interactive UI and component state
+  Styling              Tailwind CSS            Responsive styling
+  Backend language     Python                  Backend logic and AI service integration
+  API framework        FastAPI                 REST endpoints and request handling
+  Validation           Pydantic                Request and response schema validation
+  ORM                  SQLAlchemy              Database models and queries
+  Database             PostgreSQL / Supabase   Persistent enquiry-related data
+  AI inference         Groq API                LLM inference
+  LLM model            Llama 3.1 8B Instant    Enquiry text analysis
+  Automation           n8n                     External workflow orchestration
+  Email                Gmail integration       Configured email delivery
+  Testing              Pytest, HTTPX           Backend and API test support
+  Version control      Git, GitHub             Source control and collaboration
+
+## 👨‍💻 My Role and Contributions
+
+### Prasad Annasaheb Nikam
+
+**Backend & AI/ML Developer**
+
+My project responsibility focuses on backend enquiry processing,
+database-backed operations, and AI-assisted enquiry analysis.
 
   -----------------------------------------------------------------------
-  Layer                   Technology              Purpose
-  ----------------------- ----------------------- -----------------------
-  Frontend                React, Next.js          Builds the website and
-                                                  administrative
-                                                  interface
+  Contribution area                   Work
+  ----------------------------------- -----------------------------------
+  Backend development                 Worked with Python and FastAPI
+                                      backend components
 
-  Styling                 Tailwind CSS            Provides responsive UI
-                                                  styling
+  Enquiry processing                  Contributed to service and
+                                      repository operations for enquiry
+                                      creation and retrieval
 
-  Backend                 Python, FastAPI         Implements REST APIs
-                                                  and backend logic
+  Save-first processing               Worked on persisting enquiry data
+                                      before attempting AI analysis
 
-  Database                PostgreSQL / Supabase   Stores enquiries and
-                                                  related records
+  AI/LLM integration                  Worked with Groq LLM analysis for
+                                      category, intent, priority,
+                                      summary, and team suggestions
 
-  ORM                     SQLAlchemy              Maps Python models to
-                                                  database tables
+  Failure handling                    Supported fallback handling so AI
+                                      failure does not discard the saved
+                                      enquiry
 
-  Data validation         Pydantic                Validates API request
-                                                  and response data
+  Database operations                 Worked with SQLAlchemy persistence
+                                      for enquiry and related
+                                      analysis/event records
 
-  AI / LLM                Groq API, Llama 3.1 8B  Supports enquiry
-                          Instant                 analysis
-
-  Analytics               Pandas, Recharts /      Supports data
-                          Chart.js                processing and
-                                                  visualisation
-
-  Authentication          JWT / role-based access Supports authenticated
-                                                  and role-restricted
-                                                  operations
-
-  Notifications           Email, n8n, Gmail       Supports enquiry and
-                          integration             workflow notifications
-
-  Testing                 Pytest, HTTPX           Supports backend
-                                                  testing
-
-  Deployment support      Docker, cloud platform  Supports application
-                                                  packaging and
-                                                  deployment
+  Workflow support                    Contributed to status-update
+                                      operations and status-change
+                                      activity recording
   -----------------------------------------------------------------------
 
-> Integration availability depends on the corresponding environment
-> variables, credentials, and workflow configuration.
+**Primary technologies:** Python · FastAPI · SQLAlchemy · PostgreSQL ·
+Groq API · LLM Integration
 
-------------------------------------------------------------------------
+## ⚙️ Backend Processing Workflow
 
-## My Role and Contributions
+### 1. Enquiry submission
 
-### Prasad Annasaheb Nikam --- Backend & AI/ML Developer
+The public endpoint receives the customer enquiry. The backend validates
+the request, generates a reference ID, saves the enquiry with status
+`NEW`, and records an `ENQUIRY_CREATED` event.
 
-As a **Backend & AI/ML Developer**, my work focuses on the backend
-enquiry-processing flow and AI-assisted analysis capabilities.
+### 2. Save-first AI analysis
 
-**Key areas of contribution:**
+``` mermaid
+flowchart TD
+    A[Receive enquiry] --> B[Validate request]
+    B --> C[Generate reference ID]
+    C --> D[(Save enquiry in PostgreSQL)]
+    D --> E[Call AI analysis service]
+    E --> F{Analysis successful?}
+    F -->|Yes| G[Save structured AI analysis]
+    F -->|No| H[Save failed analysis and fallback]
+    G --> I[Return saved enquiry]
+    H --> I
+```
 
--   **Backend development:** Worked with Python and FastAPI backend
-    components supporting enquiry-related operations.
--   **Enquiry processing:** Contributed to the service and repository
-    workflow for creating, retrieving, and managing enquiry records.
--   **Save-first processing:** Worked on the flow in which enquiry
-    information is stored before the AI analysis step is attempted.
--   **AI integration:** Worked with the Groq LLM integration to analyse
-    enquiry text and produce structured information such as category,
-    intent, priority, summary, and suggested team.
--   **Failure handling:** Supported fallback handling so an
-    AI-processing failure does not discard the original saved enquiry.
--   **Database operations:** Worked with SQLAlchemy-based persistence
-    for enquiry data, AI analysis records, and activity events.
--   **Workflow support:** Contributed to backend status-update
-    functionality and the recording of status-change activity.
+-   **On success:** the analysis record is saved and relevant enquiry
+    fields such as category, priority, and assigned team are updated.
+-   **On failure:** the enquiry remains saved and a failed analysis
+    record with fallback information is stored.
 
-**Technologies used in my contribution:** Python, FastAPI, SQLAlchemy,
-PostgreSQL, Groq API, and LLM-assisted processing.
+### 3. Status update and activity history
 
-------------------------------------------------------------------------
+The backend status-update operation:
 
-## Backend Processing Workflow
+1.  Retrieves the enquiry.
+2.  Reads its previous status.
+3.  Updates the status and `updated_at` timestamp.
+4.  Sets `closed_at` when the new status is `CLOSED` or `CONVERTED`.
+5.  Records a `STATUS_CHANGED` event with the previous status, new
+    status, and actor ID.
 
-### 1. Enquiry Submission
+> \[!IMPORTANT\] In the current implementation, the status update and
+> activity-event insertion use separate database commits. They are not
+> one atomic transaction.
 
-1.  A customer fills in the public enquiry form.
-2.  The frontend submits the enquiry to the backend.
-3.  FastAPI receives and validates the request.
-4.  The backend generates a human-readable reference ID.
-5.  The enquiry is saved with the initial status `NEW`.
-6.  An `ENQUIRY_CREATED` activity event is recorded.
+### 4. Enquiry lookup
 
-### 2. AI Analysis
+The backend can retrieve an enquiry using its internal UUID or
+human-readable reference ID. The detail response can include associated
+AI analyses, events, and notes.
 
-After the enquiry is saved, the enquiry-processing service calls the AI
-analysis component.
-
-**When analysis succeeds:** - The generated analysis is stored. -
-Relevant enquiry fields such as category, priority, and assigned team
-are updated.
-
-**When analysis fails:** - The original enquiry remains stored. - A
-failed analysis record and fallback information are saved.
-
-**Implementation detail:** AI analysis currently runs synchronously in
-the enquiry-processing service. The email confirmation task is scheduled
-separately as a background task.
-
-### 3. Status Update
-
-1.  An authorised staff member or administrator selects a new status.
-2.  The backend retrieves the enquiry.
-3.  The enquiry status and update timestamp are changed.
-4.  If the status is `CLOSED` or `CONVERTED`, the closed timestamp is
-    set.
-5.  A status-change activity event is recorded with the previous status,
-    new status, and actor ID.
-
-The status update and activity-event insertion are separate database
-commits in the current implementation.
-
-------------------------------------------------------------------------
-
-## API Overview
+## 🔌 API Overview
 
 The following are the main enquiry endpoints identified in the backend
 router.
@@ -349,18 +441,17 @@ router.
   `POST`            `/api/v1/enquiries`                          Public            Submit a new
                                                                                    enquiry
 
-  `GET`             `/api/v1/enquiries`                          Staff / Admin     Retrieve enquiry
-                                                                                   records with
-                                                                                   supported filters
-                                                                                   and pagination
+  `GET`             `/api/v1/enquiries`                          Staff / Admin     List enquiries
+                                                                                   with supported
+                                                                                   filters and
+                                                                                   pagination
 
   `GET`             `/api/v1/enquiries/{id}`                     Staff / Admin     Retrieve an
-                                                                                   enquiry by
-                                                                                   internal ID or
+                                                                                   enquiry by ID or
                                                                                    reference ID
 
-  `PATCH`           `/api/v1/enquiries/{id}/status`              Staff / Admin     Update an
-                                                                                   enquiry's status
+  `PATCH`           `/api/v1/enquiries/{id}/status`              Staff / Admin     Update enquiry
+                                                                                   status
 
   `POST`            `/api/v1/enquiries/{id}/status-with-email`   Staff / Admin     Update status and
                                                                                    optionally queue
@@ -368,25 +459,44 @@ router.
   --------------------------------------------------------------------------------------------------
 
 The backend also contains service/repository functionality for AI
-reanalysis, assignment, and internal notes. Refer to the current API
-router and schemas for the exact routes and request formats.
+reanalysis, assignment, and internal notes. Refer to the current router
+and schemas for exact routes and request formats.
 
-Interactive API documentation is available through FastAPI:
+**Interactive API documentation:** `http://localhost:8000/docs` when the
+backend is running.
 
-``` text
-http://localhost:8000/docs
-```
+## 🗄️ Data Model Overview
 
-------------------------------------------------------------------------
+The main `Enquiry` record includes:
 
-## Project Structure
+  Field                        Description
+  ---------------------------- -------------------------------------------------
+  `id`                         Internal UUID primary key
+  `reference_id`               Human-readable unique enquiry reference
+  `full_name`, `email`         Customer identity and contact
+  `phone`, `company_name`      Optional customer details
+  `subject`, `message`         Enquiry content
+  `service_interest`           Requested service
+  `status`                     Current workflow stage
+  `priority`                   Enquiry priority
+  `category`                   Enquiry classification
+  `assigned_team`              Suggested or assigned team
+  `assigned_to`                Optional staff profile reference
+  `source`                     Enquiry source, default `WEB_PORTAL`
+  `created_at`, `updated_at`   Record timestamps
+  `closed_at`                  Set when status becomes `CLOSED` or `CONVERTED`
 
-The following is a simplified view of the repository structure. Exact
-filenames may vary with the current repository version.
+Related records include AI analyses, enquiry events, notes, and email
+records.
+
+## 📁 Project Structure
+
+Simplified view of the known repository structure. Refer to the
+repository for the complete current file tree.
 
 ``` text
 nextgen-corporate-platform/
-|
+│
 ├── src/
 │   └── app/
 │       └── admin/
@@ -394,7 +504,7 @@ nextgen-corporate-platform/
 │               ├── page.tsx
 │               └── [id]/
 │                   └── page.tsx
-|
+│
 ├── backend/
 │   ├── app/
 │   │   ├── api/
@@ -402,51 +512,45 @@ nextgen-corporate-platform/
 │   │   ├── schemas/
 │   │   ├── services/
 │   │   └── repositories/
-│   ├── requirements.txt
-│   └── alembic/
-|
+│   ├── alembic/
+│   └── requirements.txt
+│
 ├── package.json
 └── README.md
 ```
 
-------------------------------------------------------------------------
-
-## Getting Started
+## 🚀 Getting Started
 
 ### Prerequisites
-
-Install the following tools:
 
 -   Git
 -   Node.js and npm
 -   Python 3.10 or later
 -   PostgreSQL database or Supabase PostgreSQL project
--   Groq API key if AI analysis is to be enabled
--   n8n and Gmail credentials if email automation is to be enabled
+-   Groq API key for AI analysis
+-   n8n and Gmail credentials if email automation is required
 
-### 1. Clone the Repository
+### 1. Clone the repository
 
 ``` bash
-git clone https://github.com/PrajwalChopade/nextgen-corporate-platform.git
+git clone https://github.com/prasadnikam2005/nextgen-corporate-platform.git
 cd nextgen-corporate-platform
 ```
 
-### 2. Configure the Backend
+### 2. Set up the backend
 
 ``` bash
 cd backend
 python -m venv .venv
 ```
 
-Activate the virtual environment.
-
-**Windows PowerShell:**
+**Windows PowerShell**
 
 ``` powershell
 .\.venv\Scripts\Activate.ps1
 ```
 
-**macOS / Linux:**
+**macOS / Linux**
 
 ``` bash
 source .venv/bin/activate
@@ -458,21 +562,13 @@ Install dependencies:
 pip install -r requirements.txt
 ```
 
-Create `backend/.env` using the configuration template below and the
-variable names required by the project's settings module.
+### 3. Configure environment files
 
-### 3. Configure the Frontend
+Create `backend/.env` and frontend `.env.local` using the templates
+below. Confirm variable names against the current settings and frontend
+code.
 
-From the project root:
-
-``` bash
-npm install
-```
-
-Create `.env.local` in the project root and add the frontend variables
-required by the application.
-
-### 4. Run Database Migrations
+### 4. Apply database migrations
 
 From the backend directory:
 
@@ -480,26 +576,40 @@ From the backend directory:
 alembic upgrade head
 ```
 
-This applies the available Alembic migrations to the configured
-database.
+## 🔐 Environment Configuration
 
-------------------------------------------------------------------------
+> \[!WARNING\] Never commit real API keys, database passwords, JWT
+> secrets, service-role keys, or private webhook URLs to GitHub.
 
-## Environment Configuration
-
-**Never commit real credentials, API keys, database passwords, JWT
-secrets, or webhook URLs to GitHub.**
-
-### Frontend `.env.local`
-
+```{=html}
+<details>
+```
+```{=html}
+<summary>
+```
+`<strong>`{=html}Frontend environment --- .env.local`</strong>`{=html}
+```{=html}
+</summary>
+```
 ``` env
 NEXT_PUBLIC_API_BASE_URL=http://localhost:8000
 NEXT_PUBLIC_SUPABASE_URL=https://your-project.supabase.co
 NEXT_PUBLIC_SUPABASE_ANON_KEY=your-supabase-anon-key
 ```
 
-### Backend `backend/.env`
-
+```{=html}
+</details>
+```
+```{=html}
+<details>
+```
+```{=html}
+<summary>
+```
+`<strong>`{=html}Backend environment --- backend/.env`</strong>`{=html}
+```{=html}
+</summary>
+```
 ``` env
 ENVIRONMENT=development
 DEBUG=True
@@ -529,15 +639,16 @@ N8N_WEBHOOK_SECRET=your-n8n-webhook-secret
 ADMIN_NOTIFICATION_EMAIL=your-admin-email@example.com
 ```
 
-> This is a configuration template, not a guarantee that every variable
-> is required in every environment. Confirm names and required values
-> against the current backend settings and frontend code.
+```{=html}
+</details>
+```
+> These are example placeholders based on the project configuration
+> previously documented. Confirm every variable against the current code
+> before running the application.
 
-------------------------------------------------------------------------
+## ▶️ Run Locally
 
-## Run Locally
-
-### Start the Backend
+### Start the backend
 
 From the `backend` directory, with the virtual environment activated:
 
@@ -545,150 +656,146 @@ From the `backend` directory, with the virtual environment activated:
 uvicorn app.main:app --reload --host 127.0.0.1 --port 8000
 ```
 
-Backend: `http://localhost:8000`
+-   Backend: `http://localhost:8000`
+-   API docs: `http://localhost:8000/docs`
 
-API documentation: `http://localhost:8000/docs`
+### Start the frontend
 
-### Start the Frontend
-
-Open another terminal in the project root:
+Open a second terminal in the repository root:
 
 ``` bash
+npm install
 npm run dev
 ```
 
-Frontend: `http://localhost:3000`
+-   Frontend: `http://localhost:3000`
 
-------------------------------------------------------------------------
+## 🧪 Testing
 
-## Testing
-
-### Backend Tests
-
-From the backend directory, activate the virtual environment and run:
+**Backend tests** --- run from the backend directory:
 
 ``` bash
 pytest -v
 ```
 
-### Frontend Type Checking and Build
-
-From the project root:
+**Frontend type checking** --- run from the repository root:
 
 ``` bash
 npx tsc --noEmit
+```
+
+**Production build check:**
+
+``` bash
 npm run build
 ```
 
-Run these commands in the current project environment to verify
-dependencies, configuration, and code.
+Run these commands in the current development environment to verify
+dependencies, configuration, and code. Do not report test coverage or
+performance figures unless they have been measured.
 
-------------------------------------------------------------------------
+## 🛡️ Security and Reliability
 
-## Security Considerations
+-   **Input validation:** Validate enquiry data on the backend.
+-   **Access control:** Protect staff and administrator endpoints with
+    appropriate authentication and role checks.
+-   **Credential management:** Keep secrets in environment variables and
+    out of source control.
+-   **LLM input handling:** Treat customer enquiry text as untrusted
+    input.
+-   **Save-first persistence:** Store the original enquiry before
+    attempting external AI analysis.
+-   **Failure handling:** Record AI analysis failure separately from the
+    original enquiry record.
+-   **Webhook protection:** Configure and validate secrets for external
+    webhook integrations.
 
--   Keep `.env` and `.env.local` out of version control.
--   Use role-based access checks for staff and administrator endpoints.
--   Validate incoming request data on the backend.
--   Treat customer-provided enquiry text as untrusted input when sending
-    it to an LLM.
--   Protect webhook endpoints with appropriate secret validation.
--   Do not expose service-role keys or private credentials in frontend
-    code.
+## 📝 Implementation Notes
 
-------------------------------------------------------------------------
+This README documents the implementation details available from the
+project code and documentation reviewed for this project.
 
-## Current Implementation Notes
+1.  **AI execution:** AI analysis currently runs synchronously inside
+    the enquiry-processing service. Email confirmation is scheduled
+    separately as a background task.
+2.  **Honeypot behaviour:** The service checks the honeypot field, but
+    the current code path still creates the enquiry when the field is
+    populated. It should not be described as a fully enforced
+    spam-rejection mechanism.
+3.  **Status event transaction:** The enquiry status update and
+    activity-event insertion are separate commits, not one atomic
+    transaction.
+4.  **Frontend list behaviour:** The current enquiry list page performs
+    search, filtering, sorting, and pagination over data available in
+    its React context. The backend also exposes list filtering and
+    pagination, but complete frontend integration should be verified.
+5.  **Email delivery:** Delivery depends on valid environment
+    configuration and functioning n8n/Gmail workflows.
+6.  **Analytics:** Describe dashboard values as live database analytics
+    only where the relevant API and frontend integration have been
+    verified.
 
-This repository represents an academic project prototype. The following
-details are important when describing the current implementation:
-
--   The enquiry is saved before AI analysis, but AI analysis currently
-    runs synchronously in the enquiry-processing request.
--   Email confirmation is scheduled as a background task; actual
-    delivery depends on the configured email integration.
--   The enquiry-list frontend currently performs search, filtering,
-    sorting, and pagination on the data available in its React context.
-    Do not assume every displayed list operation is server-side.
--   The backend provides list filtering and pagination capabilities, but
-    the actual frontend-to-backend integration should be verified in the
-    current application configuration.
--   A honeypot field is checked by the service, but the current service
-    code still saves the enquiry when that field is populated. It should
-    not be described as a fully enforced spam-rejection mechanism.
--   Status changes and their activity events are committed separately.
-    They are not currently one atomic database transaction.
--   Describe dashboard metrics as live database analytics only after the
-    relevant frontend and analytics API integration has been verified.
-
-These notes keep the documentation aligned with the implementation
-rather than claiming unverified production guarantees.
-
-## Future Enhancements
+## 🛣️ Future Enhancements
 
 -   Move AI analysis to a dedicated background job queue.
 -   Make status updates and audit-event creation atomic.
--   Enforce honeypot handling or add another appropriate anti-spam
-    mechanism.
+-   Enforce honeypot rejection or introduce an appropriate anti-spam
+    strategy.
 -   Complete and verify frontend integration with backend list and
     analytics APIs.
--   Add comprehensive automated tests and measured performance
-    benchmarks.
--   Improve notification delivery monitoring and retry handling.
--   Add deployment documentation for the selected hosting platform.
+-   Add retry handling and delivery-status monitoring for email
+    workflows.
+-   Expand automated tests for AI failures, permissions, and status
+    transitions.
+-   Add deployment documentation for the actual hosting environment.
+-   Add measured performance benchmarks after repeatable testing.
 
 ------------------------------------------------------------------------
 
-## Project Team and Academic Information
+## 👨‍🎓 About the Developer
 
-**Project:** NextGen Corporate Platform -- AI-Powered Corporate Website
-and Automated Enquiry Management System
-
-**Institution:** Vishwakarma Institute of Information Technology (VIIT),
-Pune
-
-**Programme:** Bachelor of Technology (B.Tech)
-
-**Project Type:** Final Year Major Project
-
-**Repository:**
-[nextgen-corporate-platform](https://github.com/PrajwalChopade/nextgen-corporate-platform)
-
-**Project Lead / Developer:** Prajwal Chopade
-
-**Backend & AI/ML Developer:** Prasad Annasaheb Nikam
-
-------------------------------------------------------------------------
-
-## About Me
-
+::: {align="center"}
 ### Prasad Annasaheb Nikam
 
-**Backend & AI/ML Developer \| CSE (Artificial Intelligence & Machine
-Learning)**
+**Backend & AI/ML Developer**
 
-I am a B.Tech Computer Science and Engineering student specialising in
-Artificial Intelligence and Machine Learning at Vishwakarma Institute of
-Information Technology (VIIT), Pune.
+B.Tech --- Computer Science & Engineering (Artificial Intelligence &
+Machine Learning)\
+Vishwakarma Institute of Information Technology (VIIT), Pune
 
-I am interested in backend development, data science, machine learning,
-and building practical AI-powered applications.
+`<img src="https://img.shields.io/badge/CGPA-9.54%2F10-16A34A?style=for-the-badge" alt="CGPA 9.54 out of 10">`{=html}
+`<a href="https://github.com/prasadnikam2005">`{=html}
+`<img src="https://img.shields.io/badge/GitHub-prasadnikam2005-181717?style=for-the-badge&logo=github" alt="GitHub profile">`{=html}
+`</a>`{=html}
+:::
 
-**Education** - B.Tech -- Computer Science and Engineering (AI & ML) -
-Vishwakarma Institute of Information Technology (VIIT), Pune - CGPA:
-9.54 / 10
+I am a Computer Science and Engineering student specialising in
+Artificial Intelligence and Machine Learning, interested in backend
+engineering, data science, machine learning, and practical AI-powered
+applications.
 
-**Technical Skills** - **Programming:** Python, SQL, Java (Basic) -
-**Backend & APIs:** FastAPI - **Database:** PostgreSQL, MySQL - **Data &
-Machine Learning:** Pandas, NumPy, Scikit-learn - **Visualisation:**
-Matplotlib, Seaborn, Power BI - **Tools:** Git, Streamlit
+**Technical skills**
 
-**Project Focus** - Backend application development - REST API design
-and implementation - Database-driven application workflows - AI/LLM
-integration - Machine learning and data analysis
+  Category         Skills
+  ---------------- -------------------------------
+  Programming      Python, SQL, Java (Basic)
+  Backend / APIs   FastAPI
+  Databases        PostgreSQL, MySQL
+  Data / ML        Pandas, NumPy, Scikit-learn
+  Visualisation    Matplotlib, Seaborn, Power BI
+  Tools            Git, Streamlit
+
+**Areas of interest:** Backend development · REST API design ·
+Database-driven systems · AI/LLM integration · Machine learning · Data
+analysis
+
+**GitHub profile:**
+[github.com/prasadnikam2005](https://github.com/prasadnikam2005)
 
 ------------------------------------------------------------------------
 
-*Developed as an academic major project to demonstrate full-stack web
-development, backend API design, database-driven enquiry management,
-AI-assisted analysis, and workflow automation.*
+::: {align="center"}
+**Built with Python, FastAPI, PostgreSQL, and AI-assisted workflows.**
+
+[⬆ Back to top](#nextgen-corporate-platform)
+:::
